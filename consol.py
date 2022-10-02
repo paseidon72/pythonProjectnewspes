@@ -1,12 +1,9 @@
 
-a = "Hellow"
-b = "World"
-c = ' ' + a  + ', ' + b + '! >'
-
-print(c)
-e = c * 5
-print(e)
-
-x = ["zebra", 45, -35, "kuraga"]
-list.append(x, "shell")
-print(x)
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+cost1 = A * 100 + B
+cost2 = C * 100 + D
+total = cost1 + cost2
+print(total // 100, 'грн', total % 100, 'коп')
