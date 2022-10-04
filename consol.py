@@ -1,9 +1,11 @@
 
-a = int(input('enter first number: '))
-b = int(input('enter second number: '))
-k = (a % b) // a * b
-l = (b % a) // b * a
-n = (a // b) * (b // a) *a
-print(k + l + n)
+a = input('write text: ')
+print(a)
+b = a
+c = a
+b = b[0:4]
+print(b.upper())
+c = c[::-1]
+print(c.upper())
 
 
