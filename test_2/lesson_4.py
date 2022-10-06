@@ -1,4 +1,8 @@
 
-f_name = input('Введіть ім\'я: ')
-s_name = input('Введіть прізвище: ')
-print('Мене звуть {} {}. Я з України.'.format(f_name, s_name))
+import random
+a = random.sample(range(100), 5)
+print(a)
+print(type(a))
+b = str(a)
+print(b)
+print(type(b))
