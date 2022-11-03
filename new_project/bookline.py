@@ -11,7 +11,7 @@ app = Dash(__name__)
 # see https://plotly.com/python/px-arguments/ for more options
 df = pd.DataFrame({
     "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [14, 1, 2, 2, 4, 5],
+    "Amount": [14, 10, 12, 22, 24, 15],
     "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
 })
 
