@@ -1,5 +1,5 @@
 import random
-num = input('login ')
+num = input('Pleas write your login ')
 pas = ''
 for x in range(16):
     pas = pas + random.choice(list('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ'))
