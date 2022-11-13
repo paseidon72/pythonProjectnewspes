@@ -1,20 +1,27 @@
-import  os
-
-import openpyxl as ox
 import pandas as pd
+import numpy as np
+df = pd.read_excel("excel-comp-data.xlsx")
+df["total"] = df["Jan"] + df["Feb"] + df["Mar"] #додати загальний стовпець "total", показати загальний обсяг
+# продажів за січень, лютий і березень.
+result = df["Jan"].sum()
+result2 = df["Jan"].mean()
+result3 = df["Jan"].min()
+result4 = df["Jan"].max() #щоб отримати підсумки за місяць.
+sum_row = df[["Jan", "Feb", "Mar", "total"]].sum() #створіть суму для стовпців місяця та підсумку.
+df_sum = pd.DataFrame(data=sum_row).T #якщо ви хочете додати підсумки у вигляді рядка.
+# Ця T функція дозволяє нам переключати дані з рядків на стовпці.
+df_sum=df_sum.reindex(columns=df.columns) #додати відсутні стовпці
+# а потім заповнити значення, яких немає.
+df_final = df.append(df_sum, ignore_index=True) #Тепер відформатований DataFrame,
+df_final.tail() # ми можемо додати його до існуючого за допомогою append .
+df.head()
+print(df)
+print('*' * 50)
+print("Jan:", "sum", result, "mean", result2, "min", result3, "max", result4)
+print('*' * 50)
+print(sum_row)
+print('*' * 50)
+print(df_sum)
+print('*' * 50)
+print(df_final)
 
-def update_spreadsheet(path: str, _df, starcol: int = 1, startrow: int = 1, sheet_name: str = "ToUpdate"):
-    '''
-
-    :param path: Путь до файла Excel
-    :param _df: Датафрейм Pandas для записи
-    :param starcol: Стартовая колонка в таблице листа Excel, куда буду писать данные
-    :param startrow: Стартовая строка в таблице листа Excel, куда буду писать данные
-    :param sheet_name: Имя листа в таблице Excel, куда буду писать данные
-    :return:
-    '''
-    wb = ox.load_workbook(path)
-    for ir in range(0, len(_df)):
-        for ic in range(0, len(_df.iloc[ir])):
-            wb[sheet_name].cell(startrow + ir, starcol + ic).value = _df.iloc[ir][ic]
-    wb.save(path)

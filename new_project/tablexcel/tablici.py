@@ -16,3 +16,7 @@ result_2 = states.pivot_table(index='customer_id', values='sales', aggfunc='sum'
 print(result)
 print('-' * 100)
 print(result_2)
+newtrem = sales.merge(states, left_on='id', right_on='customer_id', suffixes=('_left', '_right'))
+newtrem.to_excel('newtab.xlsx', sheet_name='Sheet1')
+print('-' * 100)
+print(newtrem)
